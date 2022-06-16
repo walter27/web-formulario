@@ -1,0 +1,134 @@
+.card-custom {
+    background: #fff;
+    border: #D8D8D8 solid 1px;
+    border-radius: 40px;
+    color: #757575;
+    font-size: 13px;
+    -webkit-box-shadow: 1px 3px 17px -2px rgba(0, 169, 224, 0.2);
+    -moz-box-shadow: 1px 3px 17px -2px rgba(0, 169, 224, 0.2);
+    box-shadow: 1px 3px 17px -2px rgba(0, 169, 224, 0.2);
+}
+
+.card-custom-selected {
+    background: #fff;
+    border: #00A9E0 solid 2px;
+    border-radius: 40px;
+    color: #757575;
+    font-size: 13px;
+    -webkit-box-shadow: 1px 3px 17px -2px rgba(0, 169, 224, 0.2);
+    -moz-box-shadow: 1px 3px 17px -2px rgba(0, 169, 224, 0.2);
+    box-shadow: 1px 3px 17px -2px rgba(0, 169, 224, 0.2);
+}
+
+.p-button {
+    min-width: 100%;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 14px;
+}
+
+.dropdown-menu {
+    background: #00A9E0;
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    -webkit-box-shadow: 1px 3px 14px -2px rgba(0, 169, 224, 0.2);
+    -moz-box-shadow: 1px 3px 14px -2px rgba(0, 169, 224, 0.2);
+    box-shadow: 1px 3px 14px -2px rgba(0, 169, 224, 0.2);
+}
+
+.p-button:hover {
+    background: #00A9E0;
+    color: white;
+}
+
+.p-dropdown {
+    min-width: 100%;
+}
+
+.p-dropdown:hover {
+    width: auto;
+}
+
+.p-dropdown-label {
+    width: auto;
+}
+
+.p-button.p-fileupload-choose {
+    min-width: 100%;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 14px;
+}
+
+.p-button:enabled:hover {
+    background: #EFF2FB;
+    border-radius: 30px;
+    color: black;
+}
+
+.p-button.p-fileupload-choose:hover {
+    background: #EFF2FB;
+    border-radius: 30px;
+    color: black;
+}
+
+.dropdown-toggle::after {
+    border: none !important;
+}
+
+.titulo {
+    font-family: Arial;
+    font-size: 20px;
+    color: #00A9E0;
+}
+
+.subtitulo {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 15px;
+    color: #006EAE;
+}
+
+.p-carousel-items-content {
+    height: 280px !important;
+}
+
+.p-carousel .p-carousel-indicators {
+    display: none;
+}
+
+.horizontal_slider {
+    display: block;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+
+/*this is for chrome / firefox/ opera and safari*/
+
+.horizontal_slider::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* for ms*/
+
+.horizontal_slider {
+    -ms-overflow-style: none;
+}
+
+.slider_container {
+    display: block;
+    white-space: nowrap;
+}
+
+.item {
+    display: inline-block;
+    margin-right: 20px;
+    width: 280px;
+    height: 290px;
+    object-fit: cover;
+}

@@ -1,0 +1,106 @@
+.p-dialog-header {
+    display: none !important;
+}
+
+.p-dialog .p-dialog-content {
+    padding: 20px;
+}
+
+.p-steps .p-steps-item .p-menuitem-link {
+    background: transparent;
+}
+
+@keyframes p-progress-spinner-color {
+    100%,
+    0% {
+        stroke: #d62d20;
+    }
+    40% {
+        stroke: #0057e7;
+    }
+    66% {
+        stroke: #008744;
+    }
+    80%,
+    90% {
+        stroke: #ffa700;
+    }
+}
+
+.p-steps .p-steps-item .p-menuitem-link {
+    outline: 0 none !important;
+    outline-offset: 0 !important;
+    box-shadow: 0 0 0 0 !important;
+    border-color: black !important;
+}
+
+.p-steps .p-steps-item .p-menuitem-link .p-steps-number {
+    cursor: pointer;
+}
+
+.p-steps .p-steps-item .p-menuitem-link .p-steps-title {
+    color: #00A9E0;
+    font-size: 17px
+}
+
+.p-steps .p-steps-item.p-highlight .p-steps-number {
+    color: white;
+    background: #00A9E0;
+}
+
+.p-dropdown {
+    background: white;
+    border: #D8D8D8 solid 1px;
+    border-radius: 40px;
+    color: #757575;
+    font-size: 15px;
+    -webkit-box-shadow: 1px 3px 14px -2px rgba(0, 169, 224, 0.2);
+    -moz-box-shadow: 1px 3px 14px -2px rgba(0, 169, 224, 0.2);
+    box-shadow: 1px 3px 14px -2px rgba(0, 169, 224, 0.2);
+}
+
+.p-dropdown .p-dropdown-panel {
+    background: #00A9E0;
+    border-radius: 30px;
+    color: white;
+    padding: 25px;
+    font-size: 15px;
+    -webkit-box-shadow: 1px 3px 14px -2px rgba(0, 169, 224, 0.2);
+    -moz-box-shadow: 1px 3px 14px -2px rgba(0, 169, 224, 0.2);
+    box-shadow: 1px 3px 14px -2px rgba(0, 169, 224, 0.2);
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    color: white;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    background: transparent;
+    color: white;
+}
+
+.p-message.p-message-info .p-message-icon {
+    display: none;
+}
+
+.p-message.p-message-info {
+    background: #d8e9ee;
+    border: none;
+    color: #00A9E0;
+}
+
+.my-swiper {
+    height: 100%;
+}
+
+.swiper-slide-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    height: 100%;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 20px;
+}

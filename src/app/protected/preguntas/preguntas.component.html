@@ -1,0 +1,70 @@
+<div class="row">
+    <div *ngIf="usuarioSeleccionado!=null" class="col-lg-12 pb-5">
+        <p-dropdown [options]="listaUsuario" [(ngModel)]="usuarioSeleccionado" optionLabel="nombreGad" (onChange)="obtenerData()"></p-dropdown>
+    </div>
+    <div class="col-lg-4 col-10 align-self-center pb-5">
+        <p-dropdown [options]="listaComponente" [(ngModel)]="componenteSeleccionado" optionLabel="nombre" (onChange)="obtenerVariables()"></p-dropdown>
+    </div>
+    <div class="col-lg-8 pb-5 align-self-center">
+        <p-progressBar [value]="porcentaje"></p-progressBar>
+    </div>
+    <div class="col-lg-12 pt-4 pb-lg-0 ">
+        <p-messages [(value)]="mensajeComponente" [closable]="false"></p-messages>
+    </div>
+    <div *ngIf="variableSeleccionada!=null" id="mostrar" class="col-11 pb-4 pt-4 align-self-center">
+        <h5 style="color: #006EAE; font-weight: bold;">{{active+1}} {{variableSeleccionada.nombre}}</h5>
+    </div>
+    <div *ngIf="active<3" id="mostrar" class="col-1 align-self-center d-flex justify-content-end">
+        <i (click)="avanzarStep()" class="pi pi-chevron-right cursor-pointer" style="color: #006EAE;"></i>
+    </div>
+    <div id="mostrar-2" class="col-lg-12 mt-4 mb-5 pt-5 pb-5">
+        <p-steps [model]="items" [(activeIndex)]="active" [readonly]="false" (activeIndexChange)="obtenerAsignaciones($event)"></p-steps>
+    </div>
+    <div class="col-lg-12" *ngIf="variableSeleccionada!=null">
+        <app-asignacion (salidaAsignacion)="obtenerAsignacion($event)" (salidaAsignacionFalsas)="obtenerRespuestaFalsas($event)" (salidaAsignacionVerdaderas)="obtenerRespuestaVerdaderas($event)" (salidaArchivos)="obtenerArchivos($event)" [idComponente]="componenteSeleccionado.id"
+            [listaSubVariable]="variableSeleccionada.listaSubVariable "></app-asignacion>
+    </div>
+    <div class="col-lg-12 text-center d-flex justify-content-center pb-5">
+        <div class="row">
+            <div *ngIf="active>0" class="col-lg-6 col-12 pb-4 pb-lg-0">
+                <button (click)="retrocederStep()" type="button " class="boton ms-4 ">Atras</button>
+            </div>
+            <div *ngIf="!activarBotonResultados" class='col-lg-6 col-12'>
+                <button (click)="guardarRespuestas()" type="button " class="boton ms-4 ">Guardar</button>
+            </div>
+            <div *ngIf="activarBotonResultados" class="col-lg-6 col-12">
+                <button (click)=" visualizarResultados()" type="button " class="boton ms-4 ">Ver resultados</button>
+            </div>
+        </div>
+    </div>
+</div>
+<p-dialog [(visible)]="habilitarSpinnerCarga" [modal]="true" [breakpoints]="{'960px': '75vw'}" [style]="{width: '20vw'}" [draggable]="false" [resizable]="false">
+    <div class="row d-flex align-items-center">
+        <div class="col-lg-auto">
+            <p-progressSpinner [style]="{width: '30px', height: '30px'}"></p-progressSpinner>
+        </div>
+        <div class="col-lg-auto">
+            <span>Enviando respuestas</span>
+        </div>
+    </div>
+</p-dialog>
+<p-dialog [(visible)]="habilitarSpinnerExito" [modal]="true" [breakpoints]="{'960px': '75vw'}" [style]="{width: '20vw'}" [draggable]="false" [resizable]="false">
+    <div class="row d-flex align-items-center">
+        <div class="col-lg-auto">
+            <i class="pi pi-check" style="font-size: 2rem"></i>
+        </div>
+        <div class="col-lg-auto">
+            <span>Respuestas registradas</span>
+        </div>
+    </div>
+</p-dialog>
+<p-dialog [(visible)]="habilitarSpinnerError" [modal]="true" [breakpoints]="{'960px': '75vw'}" [style]="{width: '20vw'}" [draggable]="false" [resizable]="false">
+    <div class="row d-flex align-items-center">
+        <div class="col-lg-auto">
+            <i class="pi pi-times" style="font-size: 2rem"></i>
+        </div>
+        <div class="col-lg-auto">
+            <span>Error interno</span>
+        </div>
+    </div>
+</p-dialog>

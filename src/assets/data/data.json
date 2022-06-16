@@ -1,0 +1,91 @@
+[{
+        "id": 1,
+        "nombre": "Transparencia activa e información sobre el municipio",
+        "data": [{
+                "rango1": "0.50",
+                "rango2": "1.00",
+                "descripcion": "El municipio debe migrar toda la información hacía canales de datos abiertos y asegurar que la información sea fácil de acceder. Toda la información debe ser descargable y en formato ‘machine readable’."
+            },
+            {
+                "rango1": "0.00",
+                "rango2": "0.50",
+                "descripcion": "El municipio debe generar información municipal en todos los aspectos, ampliar los canales de difusión de la información, y mejorar la calidad de los datos de la información."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Compras públicas y contrataciones",
+        "data": [{
+                "rango1": "0.50",
+                "rango2": "1.00",
+                "descripcion": "El municipio se debe asegurar de que toda la información existente sobre compras y contratación pública sea procesada. También, el municipio debe presentar la información en formato de datos abiertos (descargable y ‘machine readable’)."
+            },
+            {
+                "rango1": "0.00",
+                "rango2": "0.50",
+                "descripcion": "El municipio debe generar información y asegurarse de que esta repose en algún lado, es decir, que existan respaldos institucionales de la misma."
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Acceso a la información pública",
+        "data": [{
+                "rango1": "0.50",
+                "rango2": "1.00",
+                "descripcion": "El municipio debe procesar la información existente y generar informes con estadísticas sobre el acceso a la información pública. Una vez cumpla con todo lo solicitado en la LOTAIP, el municipio debe asegurarse de que toda la información municipal sea accesible y que se encuentre en formato de datos abiertos."
+            },
+            {
+                "rango1": "0.00",
+                "rango2": "0.50",
+                "descripcion": "El municipio debe mejorar su cumplimiento con lo establecido en la LOTAIP e implementar canales de acceso a la información."
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Participación ciudadana",
+        "data": [{
+                "rango1": "0.50",
+                "rango2": "1.00",
+                "descripcion": "El municipio debe mejorar los medios y canales necesarios para asegurar la participación ciudadana. También, el municipio debe procesar la información sobre participación ciudadana y que esta conste en formato de datos abiertos."
+            },
+            {
+                "rango1": "0.00",
+                "rango2": "0.50",
+                "descripcion": "El municipio debe implementar mecanismos y canales que hagan efectiva la participación ciudadana y asegurarse de la existencia de protocolos y normas que establezcan el mecanismo."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Cultura de integridad pública y anticorrupción",
+        "data": [{
+                "rango1": "0.50",
+                "rango2": "1.00",
+                "descripcion": "Se debe fortalecer las capacidades internas del municipio, incentivar la cultura organizacional abierta y asegurar el compromiso de los servidores con la integridad pública. El municipio debe cumplir con normativa, mecanismos y acciones que incentiven la cultura de integridad y anticorrupción."
+            },
+            {
+                "rango1": "0.00",
+                "rango2": "0.50",
+                "descripcion": "El municipio debe incluir en la planificación del GAD  un enfoque de integridad. También, se deben tomar acciones más claras en cuanto a la integridad y la transparencia en todas las acciones institucionales."
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "nombre": "Captura institucional",
+        "data": [{
+                "rango1": "0.50",
+                "rango2": "1.00",
+                "descripcion": "El municipio debe cumplir con generar información y que esta se encuentre en formato de datos abiertos. Además, debe realizar más esfuerzos para transparentar la información a la ciudadanía."
+            },
+            {
+                "rango1": "0.00",
+                "rango2": "0.50",
+                "descripcion": "El municipio debe aumentar la voluntad política de los funcionarios con la transparencia y la integridad para contar con informes sobre conflictos de interés de servidores públicos electos."
+            }
+        ]
+    }
+]

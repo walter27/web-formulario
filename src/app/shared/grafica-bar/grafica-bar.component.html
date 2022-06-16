@@ -1,0 +1,4 @@
+<div *ngIf="chartOptionsBar!=null">
+    <highcharts-chart id="graficaBar" [(update)]="updateDemo" [oneToOne]=true [Highcharts]="highcharts" [options]="chartOptionsBar" style="width: 100%; display: block;">
+    </highcharts-chart>
+</div>

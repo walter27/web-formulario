@@ -1,0 +1,154 @@
+<div class="row" *ngFor="let subVariable of listaSubVariable; let i = index">
+    <div *ngIf="subVariable | validarNombre:idComponente" class="col-lg-12  pb-4">
+        <p class="m-0 titulo">{{subVariable.nombre}}</p>
+    </div>
+    <div *ngFor="let variante of subVariable.listaVariante | validarLista:idComponente; let j =index">
+        <div class="col-lg-12 subtitulo pb-4">
+            <p class="m-0">{{variante.nombre}}</p>
+        </div>
+        <div class="col-lg-12">
+            <div class="row justify-content-center">
+                <div id="mostrar-2" class="col-lg-2 text-center" *ngFor="let asignacion of variante.listaAsignacion | validarAsignacion">
+                    <div class="card h-100 card-custom" [ngClass]="{'card-custom-selected': asignacion.seleccionado === true}">
+                        <div class="row">
+                            <div style="height: 25px" class="col-lg-12 pt-4 pe-4 d-flex justify-content-end">
+                                <div class="dropdown">
+                                    <i *ngIf="asignacion.archivoContiene && asignacion.seleccionado" class="pi pi pi-ellipsis-v dropdown-toggle cursor-pointer" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        </i>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li>
+                                            <div class="row">
+
+                                                <div class="col-lg-12" *ngIf="idComponente===1">
+                                                    <p-fileUpload #upload mode="basic" chooseLabel="Cargar archivo" [auto]="true" [customUpload]="true" (uploadHandler)="cargarArchivo(i,variante,$event,upload)" class="cursor-pointer"></p-fileUpload>
+                                                </div>
+
+                                            </div>
+
+                                        </li>
+                                        <li>
+                                            <div class="row">
+
+                                                <div class="col-lg-12" *ngIf="idComponente===2 ">
+                                                    <p-fileUpload #upload mode="basic" chooseLabel="Cargar archivo" [auto]="true" [customUpload]="true" (uploadHandler)="cargarArchivos(i,variante,asignacion.id,$event,upload)" class="cursor-pointer"></p-fileUpload>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <p-button label="Agregar URL" icon="pi pi-link" (click)="mostrarDialogoUrl(i,variante,asignacion)"></p-button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div [ngStyle]="{ 'height': idComponente===1 ? '150px' : '220px' }" class=" col-lg-12 text-center d-flex align-items-center justify-content-center">
+                                <p class="m-0 p-3">{{asignacion.nombre}}</p>
+                            </div>
+                            <div *ngIf="idComponente===1" class="col-lg-12 d-flex align-items-center justify-content-center pb-4">
+                                <input class="form-check-input" (change)="obtenerRespuesta(i,variante,asignacion)" type="radio" [name]="variante.nombre" id="radioNoLabel1" [value]="asignacion.seleccionado" aria-label="..." [checked]="asignacion.seleccionado">
+                            </div>
+                            <div *ngIf="idComponente===2" class="col-lg-12 d-flex align-items-center justify-content-center pb-4">
+                                <p-checkbox name="group" value="asignacion" (onChange)="obtenerRespuestas(i,variante, asignacion)" [value]="asignacion" [(ngModel)]="asignacion.seleccionado" [binary]="true" [inputId]="asignacion.id | convertirString"></p-checkbox>
+                            </div>
+
+                            <div *ngIf="(asignacion.archivoPath | validarPath )===true &&asignacion.archivoPath.length>0" class="col-lg-12">
+                                <button (click)="eliminarArchivo(i,variante,asignacion)" pButton pRipple type="button" pTooltip="Eliminar archivo" tooltipPosition="top" [label]="asignacion.archivoPath | cortarPath" iconPos="right" icon="pi pi-times" class="p-button-secondary p-button-text"></button>
+                            </div>
+                            <div *ngIf="(asignacion.archivoPath | validarPath) === false && asignacion.archivoPath.length>0" class="col-lg-12">
+                                <button (click)="eliminarArchivo(i,variante,asignacion)" pButton pRipple type="button" pTooltip="Eliminar archivo" tooltipPosition="top" [label]="asignacion.archivoPath" iconPos="right" icon="pi pi-times" class="p-button-secondary p-button-text"></button>
+                            </div>
+                            <div *ngIf="asignacion.url!=null && asignacion.url.length>0  " class="col-lg-12 pb-3">
+                                <span (click)="mostrarDialogoUrl(i,variante,asignacion)" class="cursor-pointer"> <u>Ver URL</u> </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="componenteService.mostrarCarousel" id="mostrar" class="horizontal_slider">
+                <div class="slider_container">
+                    <div class="item col-lg-2 text-center" *ngFor="let asignacion of variante.listaAsignacion | validarAsignacion">
+                        <div class=" card h-100 card card-custom" style="padding-top: 2rem;" [ngClass]="{'card-custom-selected': asignacion.seleccionado === true}">
+                            <div class="row" style="white-space: break-spaces;">
+                                <div style="height: 25px" class="col-lg-12 pe-4 d-flex justify-content-end">
+                                    <div class="dropdown">
+                                        <i *ngIf="asignacion.archivoContiene && asignacion.seleccionado" class="pi pi pi-ellipsis-v dropdown-toggle cursor-pointer" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                </i>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li>
+                                                <div class="row">
+
+                                                    <div class="col-lg-12" *ngIf="idComponente===1">
+                                                        <p-fileUpload #upload mode="basic" chooseLabel="Cargar archivo" [auto]="true" [customUpload]="true" (uploadHandler)="cargarArchivo(i,variante,$event,upload)" class="cursor-pointer"></p-fileUpload>
+                                                    </div>
+
+                                                </div>
+
+                                            </li>
+                                            <li>
+                                                <div class="row">
+
+                                                    <div class="col-lg-12" *ngIf="idComponente===2 ">
+                                                        <p-fileUpload #upload mode="basic" chooseLabel="Cargar archivo" [auto]="true" [customUpload]="true" (uploadHandler)="cargarArchivos(i,variante,asignacion.id,$event,upload)" class="cursor-pointer"></p-fileUpload>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <p-button label="Agregar URL" icon="pi pi-link" (click)="mostrarDialogoUrl(i,variante,asignacion)"></p-button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div [ngStyle]="{ 'height': idComponente===1 ? '150px' : '140px' }" class=" col-lg-12 text-center d-flex align-items-center justify-content-center">
+                                    <p class="m-0 p-3">{{asignacion.nombre}}</p>
+                                </div>
+                                <div *ngIf="idComponente===1" class="col-lg-12 d-flex align-items-center justify-content-center pb-4">
+                                    <input class="form-check-input" (change)="obtenerRespuesta(i,variante,asignacion)" type="radio" [name]="variante.nombre" id="radioNoLabel1" [value]="asignacion.seleccionado" aria-label="..." [checked]="asignacion.seleccionado">
+                                </div>
+                                <div *ngIf="idComponente===2" class="col-lg-12 d-flex align-items-center justify-content-center pb-3 pt-4">
+                                    <p-checkbox name="group" value="asignacion" (onChange)="obtenerRespuestas(i,variante, asignacion)" [value]="asignacion" [(ngModel)]="asignacion.seleccionado" [binary]="true" [inputId]="asignacion.id | convertirString"></p-checkbox>
+                                </div>
+
+                                <div *ngIf="(asignacion.archivoPath | validarPath )===true &&asignacion.archivoPath.length>0" class="col-lg-12">
+                                    <button (click)="eliminarArchivo(i,variante,asignacion)" pButton pRipple type="button" pTooltip="Eliminar archivo" tooltipPosition="top" [label]="asignacion.archivoPath | cortarPath" iconPos="right" icon="pi pi-times" class="p-button-secondary p-button-text"></button>
+                                </div>
+                                <div *ngIf="(asignacion.archivoPath | validarPath) === false && asignacion.archivoPath.length>0" class="col-lg-12">
+                                    <button (click)="eliminarArchivo(i,variante,asignacion)" pButton pRipple type="button" pTooltip="Eliminar archivo" tooltipPosition="top" [label]="asignacion.archivoPath" iconPos="right" icon="pi pi-times" class="p-button-secondary p-button-text"></button>
+                                </div>
+                                <div *ngIf="asignacion.url!=null && asignacion.url.length>0  " class="col-lg-12 pb-3">
+                                    <span (click)="mostrarDialogoUrl(i,variante,asignacion)" class="cursor-pointer"> <u>Ver URL</u> </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="col-lg-12 pt-4 pb-4">
+                <hr style="background: #00A9E0; border:#00A9E0 solid 1px">
+            </div>
+        </div>
+    </div>
+</div>
+<p-dialog header="Agregar" (onHide)="cerrarDialogo()" [(visible)]="habilitarDialogoUrl" [breakpoints]="{'960px': '75vw'}" [style]="{width: '50vw'}" [draggable]="false" [resizable]="false" [modal]="true">
+    <div class="row">
+        <div class="col-lg-6">
+            <h5>URL</h5>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-end cursor-pointer">
+            <i class="pi pi-times" (click)="ocultarDialogoURL()"></i>
+        </div>
+        <div class="col-lg-12">
+            <input class="w-100" type="text" pInputText [(ngModel)]="url" />
+        </div>
+    </div>
+</p-dialog>
